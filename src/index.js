@@ -1,22 +1,18 @@
 import _ from "lodash";
-import "./style.css";
-import Logo from "./webpack-logo.png";
-
-const arr = ["Hello", "Webpack"];
+import printMe from "./print.js";
 
 function component() {
-  const divElement = document.createElement("div");
+  const element = document.createElement("div");
+  const btn = document.createElement("button");
 
-  divElement.innerHTML = _.join(arr, " ");
-  divElement.classList.add("hello");
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
 
-  const imgElement = document.createElement("img");
+  btn.innerHTML = "Click me and check the console!";
+  btn.onclick = printMe;
 
-  imgElement.src = Logo;
+  element.appendChild(btn);
 
-  divElement.appendChild(imgElement);
-
-  return divElement;
+  return element;
 }
 
 document.body.appendChild(component());
